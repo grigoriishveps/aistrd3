@@ -1,0 +1,4 @@
+﻿  Heap.cpp
+c:\users\grigo\source\repos\ais3\heap.cpp(452): warning C4554: "<<": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\grigo\source\repos\ais3\heap.cpp(452): warning C4334: <<: результат 32-разрядного смещения неявно преобразуется в 64-разрядное значение (предполагалось 64-разрядное смещение?)
+  ais3.vcxproj -> C:\Users\grigo\source\repos\ais3\Debug\ais3.lib
