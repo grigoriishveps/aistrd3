@@ -3,10 +3,7 @@
 #include <iomanip>
 #include <math.h>
 
-
 using namespace std;
-
-
 
 class Node {
 
@@ -65,7 +62,7 @@ private:
 	public:
 		
 		ListUniversal();
-		Node* pop();;
+		Node* pop();
 		bool is_empty();
 
 		size_t size;
@@ -81,7 +78,7 @@ private:
 		void push(Node* elem);
 
 
-		Node* pope();;
+		Node* pope();
 	};
 
 	class Stack : public ListUniversal {
@@ -99,7 +96,7 @@ private:
 		HeapIterator(Deque* Deque = nullptr);
 	
 		Node * next() override;
-		bool has_next() override;;
+		bool has_next() override;
 
 		Node *cont;
 		Deque *deque;
