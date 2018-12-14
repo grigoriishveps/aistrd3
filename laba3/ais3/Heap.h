@@ -1,10 +1,12 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <iomanip>
 #include <math.h>
 #include "Stack.h"
 #include "Deque.h"
-//Сосиска
+//РЎРѕСЃРёСЃРєР°
+//С‹С‹С‹С‹
+
 using namespace std;
 
 class Iterator {
