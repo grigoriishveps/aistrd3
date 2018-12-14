@@ -1,4 +1,4 @@
-#include "Header.h"
+Ôªø#include "Header.h"
 
 List::List()
 {
@@ -38,7 +38,7 @@ void List::push_back(int elem)
 }
 
 int List::pop_back() {
-	Node *Òont = head;
+	Node *—Åont = head;
 	if (!head)
 		throw out_of_range("Error list is Empty");
 	else if (tail == head) {
@@ -46,11 +46,11 @@ int List::pop_back() {
 	}
 	else {
 		int value;
-		while (Òont->next != tail)
-			Òont = Òont->next;
+		while (—Åont->next != tail)
+			—Åont = —Åont->next;
 		value = tail->data;
 		delete tail;
-		tail = Òont;
+		tail = —Åont;
 		tail->next = nullptr;
 		size--;
 		return value;
@@ -65,25 +65,25 @@ size_t List::get_size() {
 }
 
 void List::print_to_console() {
-	Node* Òont = head;
+	Node* —Åont = head;
 	if (isEmpty())
 		cout << "List is empty" << endl;
 	else {
 		cout << "List: ";
-		while (Òont != nullptr) {
-			cout << Òont->data << " ";
-			Òont = Òont->next;
+		while (—Åont != nullptr) {
+			cout << —Åont->data << " ";
+			—Åont = —Åont->next;
 		}
 		cout << endl;
 	}
 }
 
 void List::clear() {
-	Node* Òont = head;
-	while (Òont != nullptr) {
-		Òont = Òont->next;
+	Node* —Åont = head;
+	while (—Åont != nullptr) {
+		—Åont = —Åont->next;
 		delete head;
-		head = Òont;
+		head = —Åont;
 	}
 	size = 0;
 	head = nullptr;
@@ -95,19 +95,19 @@ void List::set(size_t index, int elem) {
 	if (index >= get_size())
 		throw out_of_range("List out of range");
 	else {
-		Node *Òont1 = head;
+		Node *—Åont1 = head;
 
 		if (index == 0) {
 			head->data = elem;
 		}
 		else {
 			size_t count = 0;
-			Node* Òont1 = head;
+			Node* —Åont1 = head;
 			while (count != index) {
-				Òont1 = Òont1->next;
+				—Åont1 = —Åont1->next;
 				count++;
 			}
-			Òont1->data = elem;
+			—Åont1->data = elem;
 		}
 	}
 }

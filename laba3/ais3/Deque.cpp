@@ -1,6 +1,6 @@
 #include "Deque.h"
 
-void Deque::push(Node * elem)
+void Deque::push(Node * elem)//обавление элемента в дек
 {
 	if (elem) {
 		if (!size) {
@@ -14,8 +14,8 @@ void Deque::push(Node * elem)
 	}
 }
 
-Node * Deque::pope() {
-	if (start) {
+Node * Deque::pope() {//удаление элемента из дека
+	if (start) { 
 		Piece* p;
 		size--;
 		p = end;

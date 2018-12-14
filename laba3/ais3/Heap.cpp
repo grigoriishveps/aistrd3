@@ -33,7 +33,7 @@ Heap::~Heap()
 	tail = nullptr;
 }
 
-void Heap::add_first(int elem) {
+void Heap::add_first(int elem) { //Добавление первого элемента
 	head = new Node(elem);
 	tail->push(head);
 	tail->push(head);
@@ -41,7 +41,8 @@ void Heap::add_first(int elem) {
 	tail_index = 0;
 	max_lvl = 0;
 }
-bool Heap::is_correct()
+
+bool Heap::is_correct() //Проверка на корректность кучи
 {
 	Deque *deque = new Deque();
 	Node *cont;
@@ -73,7 +74,7 @@ bool Heap::is_correct()
 	return true;
 }
 
-void Heap::add(int elem) {
+void Heap::add(int elem) { //Добавление элемента в кучу
 	Node*new_elem = new Node(elem), *cont_elem, *data_new_elem = new_elem;
 	if (!head)
 		add_first(elem);
@@ -108,7 +109,7 @@ void Heap::add(int elem) {
 	}
 }
 
-Iterator * Heap::bfs() {
+Iterator * Heap::bfs() { // Поиск в ширину
 	if (head) {
 		Deque *iterator = new Deque();
 		Deque *deque = new Deque();
@@ -130,7 +131,7 @@ Iterator * Heap::bfs() {
 	return nullptr;
 }
 
-Iterator * Heap::dfs() {
+Iterator * Heap::dfs() {// Поиск в длину
 	if (head) {
 		Deque *iterator = new Deque();
 		Stack *stack = new Stack();
@@ -182,10 +183,7 @@ Iterator * Heap::dfs() {
 }
 
 
-
-
-
-bool Heap::contains(int elem) {
+bool Heap::contains(int elem) {//Проверка на наличие элемента в куче
 
 	if (head) {
 		Iterator* itr = bfs();
@@ -201,7 +199,7 @@ bool Heap::contains(int elem) {
 	//throw out_of_range("Heap is empty");
 }
 
-void Heap::remove(int elem) {
+void Heap::remove(int elem) { //Удаление конкретного элемента в куче
 	Stack* stack = new Stack();
 	Node* cont, *last_elem;
 	stack->push(head);
@@ -276,7 +274,7 @@ void Heap::remove(int elem) {
 
 };
 
-int Heap::remove() {
+int Heap::remove() { //удаление максимального элемента в куче
 	Stack* stack = new Stack();
 	Node* cont = head, *last_elem;
 	int result;
@@ -349,7 +347,7 @@ int Heap::remove() {
 };
 
 
-void Heap::print()//2
+void Heap::print()//вывод элементов кучи в консоль
 {
 
 	if (!head) {
@@ -413,12 +411,12 @@ void Heap::print()//2
 
 
 
-inline Heap::HeapIterator::HeapIterator(Deque * deque) {
+inline Heap::HeapIterator::HeapIterator(Deque * deque) {  //конструктор итератора
 	this->deque = deque;
 	cont = deque->pop();
 }
 
-inline Node * Heap::HeapIterator::next() {
+inline Node * Heap::HeapIterator::next() { // Переход на следующий элемент
 	if (has_next()) {
 		Node* temp = cont;
 		cont = deque->pop();

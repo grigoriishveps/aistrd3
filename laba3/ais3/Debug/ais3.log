@@ -1,10 +1,4 @@
-﻿  Deque.cpp
-  main.cpp
-  Heap.cpp
-c:\users\grigo\desktop\laba3\ais3\heap.cpp(395): warning C4554: "<<": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-c:\users\grigo\desktop\laba3\ais3\heap.cpp(395): warning C4334: <<: результат 32-разрядного смещения неявно преобразуется в 64-разрядное значение (предполагалось 64-разрядное смещение?)
-  Source.cpp
-  Elem.cpp
-  Stack.cpp
-  Создание кода...
+﻿  Heap.cpp
+c:\users\grigo\desktop\laba3\ais3\heap.cpp(393): warning C4554: "<<": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
+c:\users\grigo\desktop\laba3\ais3\heap.cpp(393): warning C4334: <<: результат 32-разрядного смещения неявно преобразуется в 64-разрядное значение (предполагалось 64-разрядное смещение?)
   ais3.vcxproj -> C:\Users\grigo\Desktop\laba3\ais3\Debug\ais3.lib

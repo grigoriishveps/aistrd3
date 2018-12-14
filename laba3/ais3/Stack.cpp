@@ -1,6 +1,6 @@
 #include "Stack.h"
-//Привет
-void Stack::push(Node * elem)
+
+void Stack::push(Node * elem)//добавление элемента в стек
 {
 	if (elem) {
 		if (!size) {

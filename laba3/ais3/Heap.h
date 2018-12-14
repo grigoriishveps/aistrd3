@@ -1,11 +1,9 @@
-﻿#pragma once
+#pragma once
 #include <iostream>
 #include <iomanip>
 #include <math.h>
 #include "Stack.h"
 #include "Deque.h"
-//Сосиска
-//ыыыы
 
 using namespace std;
 
