@@ -1,5 +1,5 @@
 #include "Stack.h"
-
+//Привет
 void Stack::push(Node * elem)
 {
 	if (elem) {
