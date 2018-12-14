@@ -4,7 +4,7 @@
 #include <math.h>
 
 using namespace std;
-
+//Привет
 class Node {
 
 	friend class Heap;
