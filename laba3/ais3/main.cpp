@@ -2,7 +2,7 @@
 
 int main() {
 	Heap h;
-	int i;
+	int i = 1;
 	h.print();
 	/*
 	h.add(8);
@@ -12,11 +12,17 @@ int main() {
 	
 	///*
 	
-	for (i = 23; i > 8; i--) {
+	while (i){
+		cin >> i;
 		h.add(i);
 		h.print();
 	}
-	
+	i = 3;
+	while (i) {
+		cin >> i;
+		h.remove(i);
+		h.print();
+	}
 	//cout << h.contains(4);
 	//h.remove(11);
 	

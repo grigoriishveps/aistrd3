@@ -95,7 +95,7 @@ void List::set(size_t index, int elem) {
 	if (index >= get_size())
 		throw out_of_range("List out of range");
 	else {
-		Node *ñont1 = head, *cont2;
+		Node *ñont1 = head;
 
 		if (index == 0) {
 			head->data = elem;

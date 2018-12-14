@@ -2,22 +2,10 @@
 #include <iostream>
 #include <iomanip>
 #include <math.h>
-
+#include "Stack.h"
+#include "Deque.h"
+//Сосиска
 using namespace std;
-//Привет
-class Node {
-
-	friend class Heap;
-public:
-	Node(int data);
-	int get_data();
-private:
-	int data;
-	Node *nextL;
-	Node *nextR;
-	Node *prev;
-	size_t lvl;
-};
 
 class Iterator {
 
@@ -48,47 +36,6 @@ public:
 	void print();
 	
 private:
-	class Piece {
-	public:
-		Piece(Node* value, Piece*next = nullptr, Piece*prev = nullptr);
-		Node* value;
-
-		Piece* next;
-		Piece* prev;
-	};
-
-
-	class ListUniversal {
-	public:
-		
-		ListUniversal();
-		Node* pop();
-		bool is_empty();
-
-		size_t size;
-		Piece* start;
-		Piece* cont;
-		Piece* end;
-	};
-
-
-	class Deque :public ListUniversal {
-	public:
-		using ListUniversal::ListUniversal;
-		void push(Node* elem);
-
-
-		Node* pope();
-	};
-
-	class Stack : public ListUniversal {
-	public:
-		using ListUniversal::ListUniversal;
-
-		void push(Node* elem);
-		//List *cont;
-	};
-
 
 	class HeapIterator :public Iterator {
 

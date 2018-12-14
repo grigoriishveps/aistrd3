@@ -39,7 +39,7 @@ void Heap::add_first(int elem) {
 	tail->push(head);
 	head->prev = nullptr;
 	tail_index = 0;
-	max_lvl= 0;
+	max_lvl = 0;
 }
 bool Heap::is_correct()
 {
@@ -75,16 +75,16 @@ bool Heap::is_correct()
 
 void Heap::add(int elem) {
 	Node*new_elem = new Node(elem), *cont_elem, *data_new_elem = new_elem;
-	if (!head) 
+	if (!head)
 		add_first(elem);
-	else 
+	else
 	{
 		cont_elem = tail->pop();
 		new_elem->prev = cont_elem;
 		tail->push(new_elem);
 		tail->push(new_elem);
-	
-		if (tail->size%2)
+
+		if (tail->size % 2)
 			cont_elem->nextL = new_elem;
 		else
 			cont_elem->nextR = new_elem;
@@ -108,23 +108,23 @@ void Heap::add(int elem) {
 	}
 }
 
-Iterator * Heap::bfs(){
+Iterator * Heap::bfs() {
 	if (head) {
 		Deque *iterator = new Deque();
 		Deque *deque = new Deque();
 		Node* cont = head;
 		iterator->push(head);
-		
-		while(cont) {
-			
+
+		while (cont) {
+
 			iterator->push(cont->nextL);
 			iterator->push(cont->nextR);
 			deque->push(cont->nextL);
 			deque->push(cont->nextR);
 			cont = deque->pop();
-			
+
 		}
-		
+
 		return  new HeapIterator(iterator);
 	}
 	return nullptr;
@@ -136,7 +136,7 @@ Iterator * Heap::dfs() {
 		Stack *stack = new Stack();
 		Node *cont = nullptr;
 		List *list = new List();
-		int selector = 0, deep= 1;
+		int selector = 0, deep = 1;
 		iterator->push(head);
 		stack->push(head);
 		list->push_back(0);
@@ -147,14 +147,14 @@ Iterator * Heap::dfs() {
 					iterator->push(stack->start->value->nextL);
 					stack->push(stack->start->value->nextL);
 					list->push_back(deep);
-					deep= 1;
+					deep = 1;
 				}
 				else {
 					while (deep--) {
 						stack->pop();
 
 					}
-					deep= list->pop_back();
+					deep = list->pop_back();
 					selector = 2;
 				}
 			}
@@ -190,23 +190,20 @@ bool Heap::contains(int elem) {
 	if (head) {
 		Iterator* itr = bfs();
 		Node* value;
-		
+
 		while (itr->has_next()) {
 			value = itr->next();
-			if (elem > value->data)
-				return false;
-			else if (elem == value->data)
+			if (elem == value->data)
 				return true;
 		}
-		return false;
 	}
 	return false;
-		//throw out_of_range("Heap is empty");
+	//throw out_of_range("Heap is empty");
 }
 
 void Heap::remove(int elem) {
 	Stack* stack = new Stack();
-	Node* cont,* last_elem;
+	Node* cont, *last_elem;
 	stack->push(head);
 	while (!stack->is_empty()) {
 		cont = stack->pop();
@@ -215,13 +212,13 @@ void Heap::remove(int elem) {
 			last_elem = tail->pope();
 			tail->push(last_elem->prev);
 			cont->data = last_elem->data;
-		
+
 			if (last_elem->prev)
 				if (tail->size % 2)
 					last_elem->prev->nextR = nullptr;
 				else
 					last_elem->prev->nextL = nullptr;
-			
+
 			if (tail_index == 1)
 				max_lvl--;
 			else if (tail_index == 0)
@@ -234,7 +231,7 @@ void Heap::remove(int elem) {
 				cont = last_elem = nullptr;
 				return;
 			}
-	
+
 			while (cont) {
 				if (cont->nextL && cont->nextR) {
 					if (cont->nextL->data > cont->data && cont->nextR->data > cont->data) {
@@ -242,7 +239,7 @@ void Heap::remove(int elem) {
 							swap(cont->nextL->data, cont->data);
 							cont = cont->nextL;
 						}
-						else if(cont->nextL->data < cont->nextR->data){
+						else if (cont->nextL->data < cont->nextR->data) {
 							swap(cont->nextR->data, cont->data);
 							cont = cont->nextR;
 						}
@@ -259,7 +256,7 @@ void Heap::remove(int elem) {
 						cont = cont->nextR;
 					}
 					else
-						return;	
+						return;
 				}
 				else if (cont->nextL && cont->nextL->data > cont->data) {
 					swap(cont->nextL->data, cont->data);
@@ -276,7 +273,7 @@ void Heap::remove(int elem) {
 		stack->push(cont->nextL);
 		stack->push(cont->nextR);
 	}
-	
+
 };
 
 int Heap::remove() {
@@ -352,58 +349,6 @@ int Heap::remove() {
 };
 
 
-Node * Heap::ListUniversal::pop() {
-	if (size) {
-		Piece* p = start;
-		start = start->next;
-		size--;
-		return p->value;
-	}
-	return nullptr;
-}
-
-void Heap::Deque::push(Node * elem)
-{
-	if (elem){
-		if (!size) {
-			start = end = cont = new Piece(elem);
-		}
-		else {
-			end->next = new Piece(elem, nullptr, end);
-			end = end->next;
-		}
-		size++;
-	}
-}
-
-inline Node * Heap::Deque::pope() {
-	if (start) {
-		Piece* p;
-		size--;
-		p = end;
-		end = end->prev;
-		if (end)
-			end->next = nullptr;
-		return p->value;
-
-	}
-	return nullptr;
-}
-
-
-void Heap::Stack::push(Node * elem)
-{
-	if (elem) {
-		if (!size) {
-			start = end = cont = new Piece(elem);
-		}
-		else {
-			start = new Piece(elem, start);
-		}
-		size++;
-	}
-}
-
 void Heap::print()//2
 {
 
@@ -414,15 +359,15 @@ void Heap::print()//2
 	cout << "hello" << endl;;
 	Deque *deque = new Deque();
 	Node* elem;
-	
 
-	cout <<  tail_index << " " << max_lvl << endl<<'\n';
+
+	cout << tail_index << " " << max_lvl << endl << '\n';
 	deque->push(head);
 	int count_underscore;
 	for (int count_lvl = max_lvl; count_lvl >= 0; count_lvl--) {
 		for (int index = 0; index < 1 << (max_lvl - count_lvl); index++) {
 			elem = deque->pop();
-			cout << setw((1 << count_lvl) - 1 ) << "";
+			cout << setw((1 << count_lvl) - 1) << "";
 			if (elem) {
 				deque->push(elem->nextL);
 				deque->push(elem->nextR);
@@ -435,12 +380,12 @@ void Heap::print()//2
 					cout << setw((1 << count_lvl) - 1) << "";
 				}
 
-				
-				if(index % 2)
+
+				if (index % 2)
 					cout << left << setw(2) << elem->data;
 				else
 					cout << right << setw(2) << elem->data;
-				
+
 
 				if (elem->nextR) {
 					for (count_underscore = 0; count_underscore < (1 << count_lvl) - 1; count_underscore++)
@@ -463,20 +408,10 @@ void Heap::print()//2
 	}
 	cout << '\n';
 	cout << '\n';
-	
-}
 
-inline Heap::ListUniversal::ListUniversal() {
-	start = end = cont = nullptr;
-	size = 0;
 }
 
 
-inline bool Heap::ListUniversal::is_empty() {
-	if (!start || !end)
-		return true;
-	return false;
-}
 
 inline Heap::HeapIterator::HeapIterator(Deque * deque) {
 	this->deque = deque;
@@ -496,20 +431,3 @@ inline bool Heap::HeapIterator::has_next() {
 	return (cont != nullptr);
 }
 
-inline Heap::Piece::Piece(Node * value, Piece * next, Piece * prev) {
-	this->value = value;
-	this->next = next;
-	this->prev = prev;
-}
-
-
-inline Node::Node(int data) {
-	this->data = data;
-	this->nextL = nullptr;
-	this->nextR = nullptr;
-	this->prev = nullptr;
-}
-
-int Node::get_data() {
-	return data;
-}
